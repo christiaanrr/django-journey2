@@ -8,7 +8,12 @@ class RestaurantLocation(models.Model):
     description = models.TextField(default="")
     timestamp   = models.DateTimeField(auto_now_add=True)
     updated     = models.DateTimeField(auto_now=True)
+    slug        = models.SlugField(null=True, blank=True)
 
 # shows name of restaurant in admin
     def __str__(self):
+        return self.name
+
+    @property
+    def title(self):
         return self.name
