@@ -20,14 +20,16 @@ from muyPicky.views import (
     restaurant_listview,
     RestaurantListView,
     RestaurantDetailView,
+    RestaurantCreateView,
 )
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', TemplateView.as_view(template_name='home.html')),
-    url(r'^muyPicky/$', RestaurantListView.as_view()),
-    url(r'^muyPicky/(?P<rest_id>\w+)/$', RestaurantDetailView.as_view()),
+    url(r'^muypicky/$', RestaurantListView.as_view()),
+    url(r'^muypicky/create/$', RestaurantCreateView.as_view()),
+    url(r'^muypicky/(?P<slug>[\w-]+)/$', RestaurantDetailView.as_view()),
     url(r'^about/$', TemplateView.as_view(template_name='about.html')),
     url(r'^contact/$', TemplateView.as_view(template_name='contact.html')),
 ]
