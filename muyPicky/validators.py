@@ -1,6 +1,6 @@
 from django.core.exceptions import ValidationError
 
-CATEGORIES = ['mexican', 'asian', 'american', 'whatever']
+CATEGORIES = ['mexican', 'asian', 'american', 'fast food']
 
 def validate_category(value):
     if not value.lower() in CATEGORIES:
