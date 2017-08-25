@@ -19,5 +19,6 @@ class RestaurantLocationCreateForm(forms.ModelForm):
         fields = [
             'name',
             'location',
-            'category'
+            'category',
+            'slug'
         ]

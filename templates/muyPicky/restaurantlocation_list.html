@@ -15,7 +15,7 @@
         <li><a href='{{ obj.get_absolute_url }}'>{{ obj }}</a></li>
         <p>{{ obj.location }} {{ obj.category }}</p>
     {% empty %}
-        <li><a href="{% url 'muypicky:create' %}">Add One</a></li>
+        <li><a href="{% url 'muypicky:create' %}">Add Restaurant</a></li>
 
     {% endfor %}
     </ul>
