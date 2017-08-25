@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Menu Items{% endblock %}</title>
+</head>
+<body>
+{% block content %}
+    <h1>{{ object.name }}</h1>
+    <p class="lead">{{ object.restaurant.name }}</p>
+    <ul>
+        {% if object.contents %}
+            Contents
+            <ul>
+                {% for item in object.get_contents %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        {% if object.excludes %}
+            Excludes
+            <ul>
+                {% for item in object.get_excludes %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </ul>
+{% endblock %}
+</body>
+</html>

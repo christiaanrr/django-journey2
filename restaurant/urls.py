@@ -27,8 +27,7 @@ from muyPicky.views import (
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', TemplateView.as_view(template_name='home.html'), name='home'),
+    url(r'^items/', include('menus.urls', namespace='menus')),
     url(r'^muypicky/', include('muyPicky.urls', namespace='muypicky')),
-    url(r'^about/$', TemplateView.as_view(template_name='about.html'), name='about'),
-    url(r'^contact/$', TemplateView.as_view(template_name='contact.html'), name='contact'),
     url(r'^login/$', LoginView.as_view(), name='login'),
 ]
