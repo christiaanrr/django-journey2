@@ -18,7 +18,6 @@ from django.contrib import admin
 from django.views.generic.base import TemplateView
 from django.contrib.auth.views import LoginView
 from muyPicky.views import (
-    restaurant_listview,
     RestaurantListView,
     RestaurantDetailView,
     RestaurantCreateView,

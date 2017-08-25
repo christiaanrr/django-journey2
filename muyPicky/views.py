@@ -11,30 +11,30 @@ from django.views.generic.edit import CreateView
 from .forms import RestaurantCreateForm, RestaurantLocationCreateForm
 from .models import RestaurantLocation
 
-def restaurant_createview(request):
-    form = RestaurantLocationCreateForm(request.POST or None)
-    errors = None
-    if form.is_valid():
-        form.save()
-        return HttpResponseRedirect('/muypicky/')
-    if form.errors:
-        errors = form.errors
+# FUNCTION BASED VIEWS
+# def restaurant_createview(request):
+#     form = RestaurantLocationCreateForm(request.POST or None)
+#     errors = None
+#     if form.is_valid():
+#         form.save()
+#         return HttpResponseRedirect('/muypicky/')
+#     if form.errors:
+#         errors = form.errors
+#
+#     template_name = 'muyPicky/form.html'
+#     context = {
+#         'form': form,
+#         'errors': errors
+#     }
+#     return render(request, template_name, context)
 
-    template_name = 'muyPicky/form.html'
-    context = {
-        'form': form,
-        'errors': errors
-    }
-    return render(request, template_name, context)
-
-# Create your views here.
-def restaurant_listview(request):
-    template_name = 'muyPicky/restaurantlocation_list.html'
-    queryset = RestaurantLocation.objects.all()
-    context = {
-        'object_list': queryset
-    }
-    return render(request, template_name, context)
+# def restaurant_listview(request):
+#     template_name = 'muyPicky/restaurantlocation_list.html'
+#     queryset = RestaurantLocation.objects.all()
+#     context = {
+#         'object_list': queryset
+#     }
+#     return render(request, template_name, context)
 
 class RestaurantListView(ListView):
     template_name = 'muyPicky/restaurantlocation_list.html'
