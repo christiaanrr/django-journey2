@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.views.generic.base import TemplateView
 from django.contrib.auth.views import LoginView, LogoutView
 from profiles.views import ProfileFollowToggle, RegisterView, activate_user_view
-from menus.views import HomeView
+from menus.views import HomeView, AllUserRecentItemListView
 
 
 
@@ -29,6 +29,7 @@ urlpatterns = [
     url(r'^register/$', RegisterView.as_view(), name='register'),
     url(r'^profile-follow/$', ProfileFollowToggle.as_view(), name='follow'),
     url(r'^activate/(?P<code>[a-z0-9].*)/$', activate_user_view, name='activate'),
+    url(r'^recent/$', AllUserRecentItemListView.as_view(), name='recent'),
     url(r'^u/', include('profiles.urls', namespace='profile')),
     url(r'^items/', include('menus.urls', namespace='menus')),
     url(r'^muypicky/', include('muyPicky.urls', namespace='muypicky')),

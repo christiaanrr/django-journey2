@@ -7,15 +7,22 @@
 </head>
 <body>
 {% block content %}
-    <h1>{{ form.instance.title }} <p class="lead">{{ form.instance.category }}</p></h1>
-    <p>{{ form.instance.location }}</p>
-    <p>Description: {{ object.description }}</p>
-    <p>{{ form.instance.timestamp }}</p>
-    <p>updated: {{ form.instance.updated|timesince }} ago</p>
-
-    <hr />
-    <h3>Make Changes</h3>
-    {% include 'snippets/form-snippet.html' with form=form %}
+    <div class="row">
+        <div class="col-sm-8 text-center offset-sm-2">
+        <h1>{{ form.instance.title }} <p class="lead">{{ form.instance.category }}</p></h1>
+        <p>{{ form.instance.location }}</p>
+        <p>Description: {{ object.description }}</p>
+        <p>{{ form.instance.timestamp }}</p>
+        <p>updated: {{ form.instance.updated|timesince }} ago</p>
+        </div>
+    </div>
+        <hr />
+    <div class="row">
+    <div class="col-sm-8 text-center offset-sm-2">
+        <h3>Make Changes</h3>
+        {% include 'snippets/form-snippet.html' with form=form %}
+    </div>
+    </div>
 {% endblock %}
 </body>
 </html>

@@ -8,10 +8,37 @@
 </head>
 <body>
 {% block content %}
-    <h1>Hello World! Home Page</h1>
-    {% for item in some_list %}
-        <p>{{ item }}</p>
-    {% endfor %}
+    {% if not user.is_authenticated %}
+        <div class="row">
+            <div class="col-sm-6 offset-sm-3 text-center">
+                <h1 class="font-italic">Welcome</h1>
+                <p class="lead home-info">Show off some of your favorite menu items to your friends!</p>
+                <p class="lead"><a href="{% url 'register' %}">Register</a></p>
+            </div>
+        </div>
+        <hr />
+
+        <div class="row">
+            <div class="col-sm-6 offset-sm-3 text-center">
+                <h3>Recent Items</h3>
+                {% for obj in object_list %}
+                    <div class="card restaurant">
+                        <h3><a href='{% url "profile:detail" username=obj.user.username %}'>{{ obj.user.username }}</a></h3>
+                        <h4>{{ obj.name }}</h4>
+                        <p><a href='{% url "profile:detail" username=obj.user.username %}?q={{ obj.restaurant.title }}'>
+                            {{ obj.restaurant.title }}</a>|
+                            <a href='{% url "profile:detail" username=obj.user.username %}?q={{ obj.restaurant.location }}'>
+                                {{ obj.restaurant.location }}</a> |
+                            <a href='{% url "profile:detail" username=obj.user.username %}?q={{ obj.restaurant.category }}'>
+                                {{ obj.restaurant.category }}</a></p>
+                        <p>
+                            <b>{{ obj.name }}</b>
+                        </p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
 {% endblock content %}
 </body>
 </html>

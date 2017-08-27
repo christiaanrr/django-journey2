@@ -7,7 +7,7 @@
 <p>Your username and password didn't match. Please try again.</p>
 {% endif %}
 
-{% if next %}
+{% if next != "/" and next is not None %}
     {% if user.is_authenticated %}
     <p>Your account doesn't have access to this page. To proceed,
     please login with an account that has access.</p>
@@ -24,4 +24,5 @@
 <input type="hidden" name="next" value="{{ next }}" />
 </form>
 
+<p>Did you need to <a href='{% url "register" %}'>register</a>?</p>
 {% endblock %}

@@ -7,32 +7,36 @@
 </head>
 <body>
 {% block content %}
-<h1>Menu Items</h1>
-    <p class="lead"><a href="{% url 'menus:create' %}">Add Item</a> </p>
-    <ul>
-        {% for obj in object_list %}
-            <li><a href='{{ obj.get_absolute_url }}'>{{ obj.name }}</a></li>
-            {% if obj.contents %}
-                Contents
-                <ul>
-                    {% for item in obj.get_contents %}
-                        <li>{{ item }}</li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
+    <div class="row">
+        <div class="col-sm-12 text-left">
+            <h1>Menu Items</h1>
+            <p class="lead"><a href="{% url 'menus:create' %}">Add Item</a> </p>
+            <ul>
+                {% for obj in object_list %}
+                    <li><a href='{{ obj.get_absolute_url }}'>{{ obj.name }}</a></li>
+                    {% if obj.contents %}
+                        Contents
+                        <ul>
+                            {% for item in obj.get_contents %}
+                                <li>{{ item }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
 
-            {% if obj.excludes %}
-                Excludes
-                <ul>
-                    {% for item in obj.get_excludes %}
-                        <li>{{ item }}</li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-        {% empty %}
-            <li><a href="{% url 'menus:create' %}">Add Menu Item</a></li>
-{% endfor %}
-    </ul>
+                    {% if obj.excludes %}
+                        Excludes
+                        <ul>
+                            {% for item in obj.get_excludes %}
+                                <li>{{ item }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% empty %}
+                    <li><a href="{% url 'menus:create' %}">Add Menu Item</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
 {% endblock %}
 </body>
 </html>
