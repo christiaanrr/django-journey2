@@ -4,3 +4,17 @@ LAYOUT
 .main-content {
     margin-top: 90px;
 }
+
+.restaurant {
+    margin-bottom: 10px;
+}
+
+.ing {
+    border: 1px solid black;
+    padding: 2px 2px;
+    font-size: 0.9em;
+}
+
+.ing-header {
+    font-weight: bold;
+}
