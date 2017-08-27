@@ -6,7 +6,10 @@ LAYOUT
 }
 
 .restaurant {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    border: 1px solid black;
+    padding: 15px 10px;
+    box-shadow: 1px 1px 1px black;
 }
 
 .ing {

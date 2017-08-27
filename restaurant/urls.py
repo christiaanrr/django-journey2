@@ -17,16 +17,15 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.views.generic.base import TemplateView
 from django.contrib.auth.views import LoginView
-from muyPicky.views import (
-    RestaurantListView,
-    RestaurantDetailView,
-    RestaurantCreateView,
-)
+from profiles.views import ProfileFollowToggle
+
+
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', TemplateView.as_view(template_name='home.html'), name='home'),
+    url(r'^profile-follow/$', ProfileFollowToggle.as_view(), name='follow'),
     url(r'^u/', include('profiles.urls', namespace='profile')),
     url(r'^items/', include('menus.urls', namespace='menus')),
     url(r'^muypicky/', include('muyPicky.urls', namespace='muypicky')),
