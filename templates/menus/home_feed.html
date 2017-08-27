@@ -15,10 +15,11 @@
                     <h3><a href='{% url "profile:detail" username=obj.user.username %}'>{{ obj.user.username }}</a></h3>
                     <h4>{{ obj.name }}</h4>
                     <p><a href='{% url "profile:detail" username=obj.user.username %}?q={{ obj.restaurant.title }}'>
-                        {{ obj.restaurant.title }}</a>| <a href='{% url "profile:detail" username=obj.user.username %}
-                        ?q={{ obj.restaurant.location }}'>{{ obj.restaurant.location }}</a> |
-                        <a href='{% url "profile:detail" username=obj.user.username %}
-                        ?q={{ obj.restaurant.category }}'>{{ obj.restaurant.category }}</a></p>
+                        {{ obj.restaurant.title }}</a>|
+                        <a href='{% url "profile:detail" username=obj.user.username %}?q={{ obj.restaurant.location }}'>
+                            {{ obj.restaurant.location }}</a> |
+                        <a href='{% url "profile:detail" username=obj.user.username %}?q={{ obj.restaurant.category }}'>
+                            {{ obj.restaurant.category }}</a></p>
                 </div>
             {% endfor %}
         </div>
